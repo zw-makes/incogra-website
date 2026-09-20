@@ -16,7 +16,7 @@ export function applyTheme(theme) {
   root.setAttribute('data-theme', theme)
   root.style.colorScheme = theme
   const meta = document.querySelector('meta[name="theme-color"]')
-  if (meta) meta.setAttribute('content', theme === 'dark' ? '#0a0e16' : '#F2F6FC')
+  if (meta) meta.setAttribute('content', theme === 'dark' ? '#050505' : '#F2F6FC')
 }
 
 export function ThemeProvider({ children }) {

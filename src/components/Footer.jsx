@@ -1,6 +1,23 @@
 import { Link } from 'react-router-dom'
 import { useTheme } from '../theme.jsx'
 
+function SunIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+      <circle cx="8" cy="8" r="3.1" fill="none" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M8 1.4v1.7M8 12.9v1.7M1.4 8h1.7M12.9 8h1.7M3.1 3.1l1.2 1.2M11.7 11.7l1.2 1.2M3.1 12.9l1.2-1.2M11.7 4.3l1.2-1.2" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function MoonIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M13.3 10.1A5.5 5.5 0 0 1 5.9 2.7 6.1 6.1 0 1 0 13.3 10.1Z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 function ThemeToggle() {
   const { theme, setTheme } = useTheme()
 
@@ -12,6 +29,7 @@ function ThemeToggle() {
         aria-pressed={theme === 'light'}
         onClick={() => setTheme('light')}
       >
+        <SunIcon />
         Light
       </button>
       <button
@@ -20,6 +38,7 @@ function ThemeToggle() {
         aria-pressed={theme === 'dark'}
         onClick={() => setTheme('dark')}
       >
+        <MoonIcon />
         Dark
       </button>
     </div>
@@ -69,7 +88,6 @@ export default function Footer() {
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Incogra. All rights reserved.</span>
           <ThemeToggle />
-          <span>Coming soon</span>
         </div>
       </div>
     </footer>

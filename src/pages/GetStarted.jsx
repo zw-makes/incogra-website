@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import WaitlistForm from '../components/WaitlistForm.jsx'
 
 const STEPS = [
@@ -40,23 +39,7 @@ export default function GetStarted() {
         ))}
       </ol>
 
-      <div className="gs-grid">
-        <WaitlistForm />
-        <div className="install-card">
-          <p className="kicker">Chrome</p>
-          <h3>We’ll send the install.</h3>
-          <p>When you’re in, you get a normal Chrome add-on. We don’t hand out source folders, and we don’t ask you to load anything unpacked.</p>
-          <ul className="check-list">
-            <li>Invite by email, when the extension is ready</li>
-            <li>The studio you can open today</li>
-            <li>A warning before anything ever costs money</li>
-          </ul>
-          <div className="btn-row">
-            <Link className="btn btn-accent" to="/app">Open the app</Link>
-            <Link className="btn btn-ghost" to="/extension">Tour the tools</Link>
-          </div>
-        </div>
-      </div>
+      <WaitlistForm />
     </div>
   )
 }

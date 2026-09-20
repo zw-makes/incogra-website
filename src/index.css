@@ -1329,6 +1329,11 @@ p { margin: 0; }
 }
 .gs-steps span { font-family: var(--serif); font-size: 28px; color: var(--accent); }
 .gs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.get-started .waitlist-card {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
 .install-card, .waitlist-card {
   background: #fff;
   border-radius: 24px;

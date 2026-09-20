@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import WaitlistForm from '../components/WaitlistForm.jsx'
 
@@ -6,39 +5,27 @@ const STEPS = [
   {
     n: '01',
     title: 'Join the beta',
-    body: 'Leave your email so we can send install notes and warn you before anything ever costs money.'
+    body: 'Leave your email. We’ll send the Chrome install when it’s ready — and warn you before anything ever costs money.'
   },
   {
     n: '02',
-    title: 'Load the extension',
-    body: 'Chrome → Extensions → Developer mode → Load unpacked. Point it at the Incogra extension folder. Pin it.'
+    title: 'Get the extension',
+    body: 'A normal Chrome install, in your inbox. No developer mode. No folders. Nothing unpacked on your machine.'
   },
   {
     n: '03',
-    title: 'Open the app',
-    body: 'Sign in to sync, or start locally. Hover to save, capture a page, then find it in your folders.'
+    title: 'Open the studio',
+    body: 'The gallery is open now. Hover to save, capture a page, redact, then find it in your folders.'
   }
 ]
 
 export default function GetStarted() {
-  const [copied, setCopied] = useState(false)
-
-  async function copy() {
-    try {
-      await navigator.clipboard.writeText('chrome://extensions')
-      setCopied(true)
-      setTimeout(() => setCopied(false), 1600)
-    } catch {
-      setCopied(false)
-    }
-  }
-
   return (
     <div className="page get-started">
       <header className="page-hero">
         <p className="eyebrow">Get started</p>
-        <h1>Install the<br />extension.<br /><em>Open the studio.</em></h1>
-        <p className="lede">Three steps. About four minutes. After that, anything you save, capture, or redact can live in Incogra.</p>
+        <h1>Join the beta.<br /><em>Open the studio.</em></h1>
+        <p className="lede">Leave your email. We’ll send the Chrome extension when it’s yours to install. The studio is open in the meantime.</p>
       </header>
 
       <ol className="gs-steps">
@@ -57,14 +44,13 @@ export default function GetStarted() {
         <WaitlistForm />
         <div className="install-card">
           <p className="kicker">Chrome</p>
-          <h3>Load unpacked</h3>
-          <ol>
-            <li>Open <button type="button" className="inline-copy" onClick={copy}>{copied ? 'Copied' : 'chrome://extensions'}</button></li>
-            <li>Turn on Developer mode (top right)</li>
-            <li>Load unpacked → choose the Incogra <code>extension</code> folder</li>
-            <li>Pin Incogra. Hover an image. Save it.</li>
-          </ol>
-          <p className="form-note">The extension talks to the gallery at this site and at the live app.</p>
+          <h3>We’ll send the install.</h3>
+          <p>When you’re in, you get a normal Chrome add-on. We don’t hand out source folders, and we don’t ask you to load anything unpacked.</p>
+          <ul className="check-list">
+            <li>Invite by email, when the extension is ready</li>
+            <li>The studio you can open today</li>
+            <li>A warning before anything ever costs money</li>
+          </ul>
           <div className="btn-row">
             <Link className="btn btn-accent" to="/app">Open the app</Link>
             <Link className="btn btn-ghost" to="/extension">Tour the tools</Link>

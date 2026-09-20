@@ -1,11 +1,100 @@
-import { useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 
 const KEY = 'incogra-beta-waitlist'
+
+const ROLES = [
+  { id: 'streamer', label: 'Stream live' },
+  { id: 'youtuber', label: 'Make YouTube videos' },
+  { id: 'creator', label: 'Create courses or content' },
+  { id: 'editor', label: 'Edit video or stills' },
+  { id: 'podcast', label: 'Host a podcast' },
+  { id: 'recruiter', label: 'Recruit and hire' },
+  { id: 'hr', label: 'Work in HR' },
+  { id: 'designer', label: 'Design' },
+  { id: 'founder', label: 'Build a product' },
+  { id: 'researcher', label: 'Research and collect' },
+  { id: 'assistant', label: 'Assist a team' },
+  { id: 'ops', label: 'Run operations' },
+  { id: 'community', label: 'Run a community' },
+  { id: 'student', label: 'Study' },
+  { id: 'other', label: 'A bit of everything' }
+]
+
+function RoleSelect({ value, onChange }) {
+  const [open, setOpen] = useState(false)
+  const wrapRef = useRef(null)
+  const listId = useId()
+  const selected = ROLES.find((r) => r.id === value) || ROLES[0]
+
+  useEffect(() => {
+    if (!open) return
+    function onDoc(e) {
+      if (!wrapRef.current?.contains(e.target)) setOpen(false)
+    }
+    function onKey(e) {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    document.addEventListener('mousedown', onDoc)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onDoc)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [open])
+
+  function pick(id) {
+    onChange(id)
+    setOpen(false)
+  }
+
+  function onButtonKey(e) {
+    if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      setOpen(true)
+    }
+  }
+
+  return (
+    <div className={`role-select ${open ? 'open' : ''}`} ref={wrapRef}>
+      <button
+        type="button"
+        className="role-select-btn"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-controls={listId}
+        onClick={() => setOpen((v) => !v)}
+        onKeyDown={onButtonKey}
+      >
+        <span>{selected.label}</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M3.2 5.6 8 10.4l4.8-4.8" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+      {open && (
+        <ul className="role-select-menu" id={listId} role="listbox" aria-label="I mostly">
+          {ROLES.map((r) => (
+            <li key={r.id}>
+              <button
+                type="button"
+                role="option"
+                aria-selected={r.id === value}
+                className={r.id === value ? 'on' : ''}
+                onClick={() => pick(r.id)}
+              >
+                {r.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  )
+}
 
 export default function WaitlistForm({ compact = false }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [role, setRole] = useState('designer')
+  const [role, setRole] = useState('streamer')
   const [error, setError] = useState('')
   const [done, setDone] = useState(() => {
     try {
@@ -45,7 +134,7 @@ export default function WaitlistForm({ compact = false }) {
       <div className={`waitlist-card success ${compact ? 'compact' : ''}`}>
         <p className="kicker">You’re in</p>
         <h3>Welcome to Incogra Beta.</h3>
-        <p>We’ll send install notes to your inbox. You can open the app now and start a local gallery.</p>
+        <p>We’ll email you the Chrome install when it’s ready. You can open the studio now.</p>
         <a className="btn btn-accent" href="/app">Open the app</a>
       </div>
     )
@@ -71,12 +160,7 @@ export default function WaitlistForm({ compact = false }) {
       </div>
       <label>
         I mostly
-        <select value={role} onChange={(e) => setRole(e.target.value)}>
-          <option value="designer">Design and generate</option>
-          <option value="founder">Build products</option>
-          <option value="researcher">Research and collect</option>
-          <option value="other">Do a bit of everything</option>
-        </select>
+        <RoleSelect value={role} onChange={setRole} />
       </label>
       {error && <p className="form-error">{error}</p>}
       <button className="btn btn-accent" type="submit">Request access</button>

@@ -1344,22 +1344,84 @@ p { margin: 0; }
   background: var(--paper);
   border-radius: 12px;
   padding: 10px 12px;
+  color: var(--ink);
+  font: inherit;
 }
+.waitlist-card .btn { margin-top: 16px; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .form-error { color: var(--accent); font-size: 13px; margin: 8px 0; }
 .form-note { color: var(--muted); font-size: 12px; margin-top: 10px; }
-.install-card ol { padding-left: 18px; color: var(--ink-soft); }
-.install-card li { margin: 8px 0; }
-.inline-copy {
-  border: 0;
-  background: var(--paper-2);
-  border-radius: 8px;
-  padding: 2px 8px;
+.install-card > p { color: var(--ink-soft); }
+.install-card .check-list { margin-bottom: 22px; }
+.install-card .btn-row { justify-content: flex-start; }
+
+.role-select { position: relative; margin-top: 8px; }
+.role-select-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 12px;
+  padding: 12px 14px;
   cursor: pointer;
-  font-family: ui-monospace, monospace;
-  font-size: 12px;
+  text-align: left;
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
-code { font-family: ui-monospace, monospace; font-size: 0.92em; }
+.role-select-btn svg { flex-shrink: 0; color: var(--muted); transition: transform 0.15s ease; }
+.role-select.open .role-select-btn,
+.role-select-btn:hover,
+.role-select-btn:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+  outline: 0;
+}
+.role-select.open .role-select-btn svg { transform: rotate(180deg); color: var(--accent); }
+.role-select-menu {
+  position: absolute;
+  z-index: 30;
+  left: 0;
+  right: 0;
+  top: calc(100% + 8px);
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+  max-height: 280px;
+  overflow: auto;
+}
+.role-select-menu button {
+  width: 100%;
+  display: block;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+}
+.role-select-menu button:hover,
+.role-select-menu button:focus-visible {
+  background: var(--cream);
+  outline: 0;
+}
+.role-select-menu button.on {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-weight: 600;
+}
 
 .legal-body { max-width: 680px; margin: 0 auto; }
 .legal-body h2 { font-size: 28px; margin: 28px 0 8px; }

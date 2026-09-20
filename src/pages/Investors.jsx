@@ -91,8 +91,8 @@ function InvestorForm() {
       <div className="waitlist-card success">
         <p className="kicker">Received</p>
         <h3>We’ll write back.</h3>
-        <p>If you want the same note in our inbox today, send it to hello@incogra.app with the subject “Investor”.</p>
-        <a className="btn btn-accent" href="mailto:hello@incogra.app?subject=Investor">Email hello@incogra.app</a>
+        <p>If you want the same note in our inbox today, send it to zwmakes@gmail.com with the subject “Investor”.</p>
+        <a className="btn btn-accent" href="mailto:zwmakes@gmail.com?subject=Investor">Email zwmakes@gmail.com</a>
       </div>
     )
   }
@@ -126,7 +126,7 @@ function InvestorForm() {
       </label>
       {error && <p className="form-error">{error}</p>}
       <button className="btn btn-accent" type="submit">Send note</button>
-      <p className="form-note">Stored locally on this device until a backend is wired. Prefer mail? hello@incogra.app</p>
+      <p className="form-note">Stored locally on this device until a backend is wired. Prefer mail? zwmakes@gmail.com</p>
     </form>
   )
 }
@@ -148,7 +148,7 @@ export default function Investors() {
         </p>
         <div className="btn-row">
           <a className="btn btn-accent" href="#investors-contact">Get in touch</a>
-          <Link className="btn btn-ghost" to="/app">Open the app</Link>
+          <Link className="btn btn-ghost" to="/#web-app">See the studio</Link>
         </div>
       </header>
 
@@ -201,7 +201,7 @@ export default function Investors() {
           </article>
         </div>
         <p className="form-note investors-disclaimer">
-          We are in beta. This page is the thesis, not a data room — no vanity metrics, no invented raise. Product, pricing, and the conversation live here; terms live in the email that follows.
+          We’re about to launch. This page is the thesis, not a data room — no vanity metrics, no invented raise. Product, pricing, and the conversation live here; terms live in the email that follows.
         </p>
       </section>
 

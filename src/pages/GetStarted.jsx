@@ -3,18 +3,18 @@ import WaitlistForm from '../components/WaitlistForm.jsx'
 const STEPS = [
   {
     n: '01',
-    title: 'Join the beta',
-    body: 'Leave your email. We’ll send the Chrome install when it’s ready — and warn you before anything ever costs money.'
+    title: 'Leave your email',
+    body: 'That’s how we know where to send the link when Incogra launches.'
   },
   {
     n: '02',
-    title: 'Get the extension',
-    body: 'A normal Chrome install, in your inbox. No developer mode. No folders. Nothing unpacked on your machine.'
+    title: 'We publish the beta',
+    body: 'The product is ready. Launch is next. You won’t have to hunt for it.'
   },
   {
     n: '03',
-    title: 'Open the studio',
-    body: 'The gallery is open now. Hover to save, capture a page, redact, then find it in your folders.'
+    title: 'You try it first',
+    body: 'The moment we publish, you get the link first — before we open it up.'
   }
 ]
 
@@ -23,8 +23,8 @@ export default function GetStarted() {
     <div className="page get-started">
       <header className="page-hero">
         <p className="eyebrow">Get started</p>
-        <h1>Join the beta.<br /><em>Open the studio.</em></h1>
-        <p className="lede">Leave your email. We’ll send the Chrome extension when it’s yours to install. The studio is open in the meantime.</p>
+        <h1>Be first when Incogra <em>launches.</em></h1>
+        <p className="lede">Leave your email. When we publish the beta, you get the link first so you can try it before everyone else.</p>
       </header>
 
       <ol className="gs-steps">

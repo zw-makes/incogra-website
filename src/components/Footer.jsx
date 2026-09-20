@@ -4,15 +4,15 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-cta">
-        <p className="kicker light">Beta is open</p>
+        <p className="kicker light">Launching soon</p>
         <h2>
           Catch the page.<br />
           Soften the secret.<br />
           Keep it yours.
         </h2>
         <div className="btn-row">
-          <Link to="/get-started" className="btn btn-light">Join the beta</Link>
-          <Link to="/app" className="btn btn-ghost-light">Open the app</Link>
+          <Link to="/get-started" className="btn btn-light">Get the launch link</Link>
+          <Link to="/#web-app" className="btn btn-ghost-light">See the studio</Link>
         </div>
       </div>
 
@@ -26,17 +26,15 @@ export default function Footer() {
           </div>
           <div>
             <h3>Product</h3>
-            <Link to="/extension">Extension</Link>
-            <Link to="/app">Web app</Link>
+            <Link to="/#extension">Extension</Link>
+            <Link to="/#web-app">Web app</Link>
             <Link to="/get-started">Get started</Link>
-            <Link to="/extension">Blur tools</Link>
           </div>
           <div>
             <h3>Company</h3>
             <Link to="/investors">For Investors</Link>
             <Link to="/privacy">Privacy</Link>
-            <a href="mailto:hello@incogra.app">hello@incogra.app</a>
-            <a href="https://incogra.vercel.app" target="_blank" rel="noreferrer">Live gallery</a>
+            <a href="mailto:zwmakes@gmail.com">zwmakes@gmail.com</a>
           </div>
         </div>
 
@@ -44,7 +42,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Incogra. All rights reserved.</span>
-          <span>Incogra Beta · v0.1</span>
+          <span>Coming soon</span>
         </div>
       </div>
     </footer>

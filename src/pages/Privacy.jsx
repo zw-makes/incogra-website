@@ -42,7 +42,7 @@ export default function Privacy() {
 
         <h2>Contact</h2>
         <p>
-          Questions about a save, a deletion, or this policy: <a href="mailto:hello@incogra.app">hello@incogra.app</a>.
+          Questions about a save, a deletion, or this policy: <a href="mailto:zwmakes@gmail.com">zwmakes@gmail.com</a>.
         </p>
         <p className="form-note">Last updated September 2026. Beta software — we will update this as the product hardens.</p>
       </div>

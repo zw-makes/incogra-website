@@ -365,6 +365,7 @@ p { margin: 0; }
   padding: 32px;
   min-height: 0;
   overflow: hidden;
+  scroll-margin-top: 88px;
 }
 .split-products h2 { font-size: 40px; margin-bottom: 12px; }
 .split-products p { color: var(--ink-soft); }

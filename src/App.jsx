@@ -13,11 +13,17 @@ function ScrollToTop() {
   const { pathname, hash } = useLocation()
   useEffect(() => {
     if (hash) {
-      const el = document.querySelector(hash)
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        return
+      const scrollToHash = () => {
+        const el = document.querySelector(hash)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          return true
+        }
+        return false
       }
+      if (scrollToHash()) return
+      const id = requestAnimationFrame(scrollToHash)
+      return () => cancelAnimationFrame(id)
     }
     window.scrollTo(0, 0)
   }, [pathname, hash])

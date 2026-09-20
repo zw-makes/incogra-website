@@ -132,10 +132,9 @@ export default function WaitlistForm({ compact = false }) {
   if (done) {
     return (
       <div className={`waitlist-card success ${compact ? 'compact' : ''}`}>
-        <p className="kicker">You’re in</p>
-        <h3>Welcome to Incogra Beta.</h3>
-        <p>We’ll email you the Chrome install when it’s ready. You can open the studio now.</p>
-        <a className="btn btn-accent" href="/app">Open the app</a>
+        <p className="kicker">You’re on the list</p>
+        <h3>You’ll get the link first.</h3>
+        <p>When we publish the beta, we’ll email you so you can try Incogra before we open it up.</p>
       </div>
     )
   }
@@ -144,8 +143,8 @@ export default function WaitlistForm({ compact = false }) {
     <form className={`waitlist-card ${compact ? 'compact' : ''}`} onSubmit={submit}>
       {!compact && (
         <>
-          <p className="kicker">Join the beta</p>
-          <h3>Free while we’re figuring out the edges.</h3>
+          <p className="kicker">Get the launch link</p>
+          <h3>Try Incogra first, when it goes live.</h3>
         </>
       )}
       <div className="field-row">
@@ -163,8 +162,8 @@ export default function WaitlistForm({ compact = false }) {
         <RoleSelect value={role} onChange={setRole} />
       </label>
       {error && <p className="form-error">{error}</p>}
-      <button className="btn btn-accent" type="submit">Request access</button>
-      <p className="form-note">No card. We’ll only email you about Incogra.</p>
+      <button className="btn btn-accent" type="submit">Notify me</button>
+      <p className="form-note">No card. We’ll only email you when Incogra launches.</p>
     </form>
   )
 }

@@ -47,8 +47,8 @@ export default function Home() {
           Save stills, video, or text from any page — or capture the whole thing in one click. Then blur it, share it, or lock it away.
         </p>
         <div className="btn-row">
-          <Link to="/get-started" className="btn btn-accent">Join the beta</Link>
-          <Link to="/app" className="btn btn-ghost">Open the app</Link>
+          <Link to="/get-started" className="btn btn-accent">Get the launch link</Link>
+          <Link to="/#web-app" className="btn btn-ghost">See the studio</Link>
         </div>
         <HeroMock />
         <div className="review-strip">
@@ -101,7 +101,7 @@ export default function Home() {
           <ul className="check-list">
             {FEATURES[0].points.map((p) => <li key={p}>{p}</li>)}
           </ul>
-          <Link to="/extension" className="text-link">See the extension →</Link>
+          <Link to="/#extension" className="text-link">See the extension →</Link>
         </div>
         <div className="feature-media frame-accent">
           <HoverSaveMock />
@@ -130,7 +130,7 @@ export default function Home() {
           <ul className="check-list">
             {FEATURES[2].points.map((p) => <li key={p}>{p}</li>)}
           </ul>
-          <Link to="/app" className="text-link">Open the gallery →</Link>
+          <Link to="/#web-app" className="text-link">See the studio →</Link>
         </div>
         <div className="feature-media frame-accent">
           <ProductShot
@@ -156,7 +156,7 @@ export default function Home() {
       </section>
 
       <section className="split-products">
-        <article>
+        <article id="extension">
           <p className="kicker">The extension</p>
           <h2>Lives in the tab.</h2>
           <p>Hover to save. Capture the whole page. Six redaction tools when something shouldn’t travel. Then a one-click jump into the studio.</p>
@@ -164,7 +164,7 @@ export default function Home() {
             <PopupMock />
           </div>
         </article>
-        <article>
+        <article id="web-app">
           <p className="kicker">The web app</p>
           <h2>Lives in the library.</h2>
           <p>Folders of your own. A private mode with a passcode. Share a collection in a single click, or keep it behind the door. The place saves go when Downloads isn’t a system.</p>

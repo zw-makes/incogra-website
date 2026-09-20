@@ -4,11 +4,11 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 export default function Nav() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
 
   useEffect(() => {
     setOpen(false)
-  }, [pathname])
+  }, [pathname, hash])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -31,8 +31,9 @@ export default function Nav() {
 
         <nav className="nav-links">
           <NavLink to="/" end>Home</NavLink>
-          <NavLink to="/extension">Extension</NavLink>
-          <NavLink to="/app">App</NavLink>
+          <Link to="/#extension">Extension</Link>
+          <Link to="/#web-app">Web app</Link>
+          <NavLink to="/get-started">Get started</NavLink>
           <a href="/#faq">FAQ</a>
           <NavLink to="/investors">For Investors</NavLink>
         </nav>
@@ -54,8 +55,9 @@ export default function Nav() {
       {open && (
         <div className="nav-drawer">
           <NavLink to="/" end>Home</NavLink>
-          <NavLink to="/extension">Extension</NavLink>
-          <NavLink to="/app">App</NavLink>
+          <Link to="/#extension">Extension</Link>
+          <Link to="/#web-app">Web app</Link>
+          <NavLink to="/get-started">Get started</NavLink>
           <NavLink to="/investors">For Investors</NavLink>
           <NavLink to="/privacy">Privacy</NavLink>
           <Link to="/get-started" className="btn btn-accent">Join</Link>

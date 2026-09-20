@@ -1,4 +1,30 @@
 import { Link } from 'react-router-dom'
+import { useTheme } from '../theme.jsx'
+
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme()
+
+  return (
+    <div className="theme-toggle" role="group" aria-label="Color theme">
+      <button
+        type="button"
+        className={theme === 'light' ? 'on' : ''}
+        aria-pressed={theme === 'light'}
+        onClick={() => setTheme('light')}
+      >
+        Light
+      </button>
+      <button
+        type="button"
+        className={theme === 'dark' ? 'on' : ''}
+        aria-pressed={theme === 'dark'}
+        onClick={() => setTheme('dark')}
+      >
+        Dark
+      </button>
+    </div>
+  )
+}
 
 export default function Footer() {
   return (
@@ -42,6 +68,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Incogra. All rights reserved.</span>
+          <ThemeToggle />
           <span>Coming soon</span>
         </div>
       </div>

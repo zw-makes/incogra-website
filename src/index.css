@@ -1,6 +1,8 @@
 :root {
+  color-scheme: light;
   --paper: #f2f6fc;
   --paper-2: #e6eef8;
+  --card: #ffffff;
   --ink: #0f1724;
   --ink-soft: #3a4558;
   --muted: #6b7688;
@@ -14,11 +16,33 @@
   --dark-3: #171e2b;
   --frame: #3b78ff;
   --ok: #2f7a4f;
+  --nav-bg: #0a0e16;
   --serif: "Instrument Serif", Georgia, serif;
   --sans: "Instrument Sans", "Segoe UI", sans-serif;
   --radius: 22px;
   --nav: 64px;
   --shadow: 0 30px 80px rgba(15, 32, 64, 0.16);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0a0e16;
+  --paper-2: #121826;
+  --card: #161d2b;
+  --ink: #eef3fb;
+  --ink-soft: #b4bdcc;
+  --muted: #8b95a6;
+  --line: rgba(238, 243, 251, 0.1);
+  --accent: #5b8cff;
+  --accent-dark: #4a7cff;
+  --accent-soft: #1a2f66;
+  --cream: #121826;
+  --dark: #07090f;
+  --dark-2: #0c1018;
+  --dark-3: #151c2a;
+  --frame: #3b78ff;
+  --nav-bg: #121826;
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
 }
 
 * { box-sizing: border-box; }
@@ -33,6 +57,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 img { max-width: 100%; display: block; }
 button, input, select { font: inherit; }
@@ -96,7 +121,7 @@ p { margin: 0; }
 .btn-accent { background: var(--accent); color: #fff; }
 .btn-accent:hover { background: var(--accent-dark); }
 .btn-ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
-.btn-light { background: #fff; color: var(--ink); }
+.btn-light { background: #fff; color: #0f1724; }
 .btn-ghost-light { background: transparent; color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
 .text-link {
@@ -124,7 +149,7 @@ p { margin: 0; }
   display: flex;
   align-items: center;
   gap: 28px;
-  background: #0a0e16;
+  background: var(--nav-bg);
   color: #fff;
   padding: 14px 24px 16px 30px;
   border-radius: 0 0 32px 32px;
@@ -142,11 +167,11 @@ p { margin: 0; }
 }
 .notch::before {
   left: -18px;
-  background: radial-gradient(circle at 0 100%, transparent 18px, #0a0e16 18.5px);
+  background: radial-gradient(circle at 0 100%, transparent 18px, var(--nav-bg) 18.5px);
 }
 .notch::after {
   right: -18px;
-  background: radial-gradient(circle at 100% 100%, transparent 18px, #0a0e16 18.5px);
+  background: radial-gradient(circle at 100% 100%, transparent 18px, var(--nav-bg) 18.5px);
 }
 .nav-brand {
   display: flex;
@@ -208,7 +233,7 @@ p { margin: 0; }
   gap: 14px;
   margin-top: 10px;
   padding: 18px 22px 22px;
-  background: #0a0e16;
+  background: var(--nav-bg);
   color: #fff;
   border-radius: 22px;
   min-width: min(320px, calc(100vw - 32px));
@@ -378,7 +403,7 @@ p { margin: 0; }
   gap: 20px;
 }
 .steps-grid article {
-  background: #fff;
+  background: var(--card);
   border-radius: 22px;
   padding: 28px;
   box-shadow: 0 1px 0 var(--line);
@@ -396,7 +421,7 @@ p { margin: 0; }
   margin-bottom: 28px;
 }
 .tools-grid article {
-  background: #fff;
+  background: var(--card);
   border-radius: 18px;
   padding: 22px;
 }
@@ -440,7 +465,7 @@ p { margin: 0; }
 }
 .voices-grid blockquote {
   margin: 0;
-  background: #fff;
+  background: var(--card);
   border-radius: 22px;
   padding: 24px;
 }
@@ -470,7 +495,7 @@ p { margin: 0; }
   text-align: left;
 }
 .plan {
-  background: #fff;
+  background: var(--card);
   border-radius: 24px;
   padding: 28px 24px 22px;
   min-height: 400px;
@@ -553,6 +578,7 @@ p { margin: 0; }
   cursor: pointer;
   font-size: 18px;
   font-weight: 600;
+  color: var(--ink);
 }
 .faq-item i {
   width: 14px;
@@ -606,12 +632,38 @@ p { margin: 0; }
 .footer-bottom {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  align-items: center;
+  gap: 16px;
   flex-wrap: wrap;
   color: rgba(238,243,251,0.4);
   font-size: 13px;
   border-top: 1px solid rgba(255,255,255,0.08);
   padding-top: 18px;
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+}
+.theme-toggle button {
+  border: 0;
+  background: transparent;
+  color: rgba(238,243,251,0.55);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.theme-toggle button:hover:not(.on) { color: #fff; }
+.theme-toggle button.on {
+  background: #fff;
+  color: #0f1724;
 }
 
 /* MOCKUPS */
@@ -1324,7 +1376,7 @@ p { margin: 0; }
   display: grid;
   grid-template-columns: 64px 1fr;
   gap: 16px;
-  background: #fff;
+  background: var(--card);
   border-radius: 20px;
   padding: 20px;
 }
@@ -1336,13 +1388,13 @@ p { margin: 0; }
   margin: 0 auto;
 }
 .install-card, .waitlist-card {
-  background: #fff;
+  background: var(--card);
   border-radius: 24px;
   padding: 28px;
 }
 .waitlist-card h3, .install-card h3 { font-size: 32px; margin-bottom: 12px; }
 .waitlist-card.compact { background: transparent; padding: 16px 0 0; box-shadow: none; border-radius: 0; }
-.waitlist-card.success { background: #0f1724; color: #eef3fb; }
+.waitlist-card.success { background: var(--dark-2); color: #eef3fb; }
 .waitlist-card label, .install-card label { display: block; font-size: 13px; font-weight: 600; margin: 12px 0 8px; }
 .waitlist-card input, .waitlist-card select, .waitlist-card textarea, .pass-card input, .app-search {
   width: 100%;
@@ -1398,7 +1450,7 @@ p { margin: 0; }
   margin: 0;
   padding: 8px;
   list-style: none;
-  background: #fff;
+  background: var(--card);
   border-radius: 16px;
   box-shadow: var(--shadow);
   border: 1px solid var(--line);
@@ -1455,7 +1507,7 @@ p { margin: 0; }
   margin-bottom: 8px;
 }
 .investors-grid article {
-  background: #fff;
+  background: var(--card);
   border-radius: 22px;
   padding: 28px;
 }
@@ -1534,7 +1586,7 @@ p { margin: 0; }
 .tool-switch button {
   text-align: left;
   border: 1px solid var(--line);
-  background: #fff;
+  background: var(--card);
   border-radius: 14px;
   padding: 12px;
   cursor: pointer;

@@ -8,6 +8,7 @@ import AppDemo from './pages/AppDemo.jsx'
 import GetStarted from './pages/GetStarted.jsx'
 import Privacy from './pages/Privacy.jsx'
 import Investors from './pages/Investors.jsx'
+import Inbox from './pages/Inbox.jsx'
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/investors" element={<Investors />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/inbox" element={<Inbox />} />
         </Routes>
       </main>
       {!isApp && <Footer />}

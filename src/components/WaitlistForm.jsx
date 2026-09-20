@@ -1,6 +1,5 @@
 import { useEffect, useId, useRef, useState } from 'react'
-
-const KEY = 'incogra-beta-waitlist'
+import { supabase } from '../lib/supabase.js'
 
 const ROLES = [
   { id: 'streamer', label: 'Stream live' },
@@ -104,7 +103,7 @@ export default function WaitlistForm({ compact = false }) {
     }
   })
 
-  function submit(e) {
+  async function submit(e) {
     e.preventDefault()
     setError('')
     const cleanEmail = email.trim().toLowerCase()
@@ -116,16 +115,23 @@ export default function WaitlistForm({ compact = false }) {
       setError('That email doesn’t look right.')
       return
     }
-    try {
-      const existing = JSON.parse(localStorage.getItem(KEY) || '[]')
-      const entry = { name: name.trim(), email: cleanEmail, role, at: new Date().toISOString() }
-      const next = existing.filter((x) => x.email !== cleanEmail).concat(entry)
-      localStorage.setItem(KEY, JSON.stringify(next))
-      localStorage.setItem('incogra-beta-joined', JSON.stringify(entry))
-    } catch {
+    if (!supabase) {
       setError('Couldn’t save just now. Try again.')
       return
     }
+    const row = { name: name.trim(), email: cleanEmail, role }
+    let { error: saveError } = await supabase.from('waitlist').insert(row)
+    if (saveError?.code === 'PGRST204') {
+      const retry = await supabase.from('waitlist').insert({ name: row.name, email: row.email })
+      saveError = retry.error
+    }
+    if (saveError) {
+      setError('Couldn’t save just now. Try again.')
+      return
+    }
+    try {
+      localStorage.setItem('incogra-beta-joined', '1')
+    } catch {}
     setDone(true)
   }
 

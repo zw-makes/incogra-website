@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
-const KEY = 'incogra-investor-inquiries'
+import { supabase } from '../lib/supabase.js'
 
 const BETS = [
   {
@@ -55,7 +54,7 @@ function InvestorForm() {
     }
   })
 
-  function submit(e) {
+  async function submit(e) {
     e.preventDefault()
     setError('')
     const cleanEmail = email.trim().toLowerCase()
@@ -67,22 +66,23 @@ function InvestorForm() {
       setError('That email doesn’t look right.')
       return
     }
-    try {
-      const existing = JSON.parse(localStorage.getItem(KEY) || '[]')
-      const entry = {
-        name: name.trim(),
-        email: cleanEmail,
-        firm: firm.trim(),
-        note: note.trim(),
-        at: new Date().toISOString()
-      }
-      const next = existing.filter((x) => x.email !== cleanEmail).concat(entry)
-      localStorage.setItem(KEY, JSON.stringify(next))
-      localStorage.setItem('incogra-investor-sent', JSON.stringify(entry))
-    } catch {
+    if (!supabase) {
       setError('Couldn’t save just now. Try again, or email us directly.')
       return
     }
+    const { error: saveError } = await supabase.from('investors').insert({
+      name: name.trim(),
+      email: cleanEmail,
+      firm: firm.trim(),
+      note: note.trim()
+    })
+    if (saveError) {
+      setError('Couldn’t save just now. Try again, or email us directly.')
+      return
+    }
+    try {
+      localStorage.setItem('incogra-investor-sent', '1')
+    } catch {}
     setDone(true)
   }
 
@@ -126,7 +126,7 @@ function InvestorForm() {
       </label>
       {error && <p className="form-error">{error}</p>}
       <button className="btn btn-accent" type="submit">Send note</button>
-      <p className="form-note">Stored locally on this device until a backend is wired. Prefer mail? zwmakes@gmail.com</p>
+      <p className="form-note">We’ll read this. Prefer mail? zwmakes@gmail.com</p>
     </form>
   )
 }

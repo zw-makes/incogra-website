@@ -70,7 +70,7 @@ function InvestorForm() {
       setError('Couldn’t save just now. Try again, or email us directly.')
       return
     }
-    const { error: saveError } = await supabase.from('investors').insert({
+    const { error: saveError } = await supabase.from('incogra_investors').insert({
       name: name.trim(),
       email: cleanEmail,
       firm: firm.trim(),

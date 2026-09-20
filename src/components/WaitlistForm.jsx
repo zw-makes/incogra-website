@@ -119,12 +119,11 @@ export default function WaitlistForm({ compact = false }) {
       setError('Couldn’t save just now. Try again.')
       return
     }
-    const row = { name: name.trim(), email: cleanEmail, role }
-    let { error: saveError } = await supabase.from('waitlist').insert(row)
-    if (saveError?.code === 'PGRST204') {
-      const retry = await supabase.from('waitlist').insert({ name: row.name, email: row.email })
-      saveError = retry.error
-    }
+    const { error: saveError } = await supabase.from('incogra_waitlist').insert({
+      name: name.trim(),
+      email: cleanEmail,
+      role
+    })
     if (saveError) {
       setError('Couldn’t save just now. Try again.')
       return

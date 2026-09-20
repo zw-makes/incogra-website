@@ -51,7 +51,7 @@ export default function Inbox() {
       return
     }
     setLoading(true)
-    const { data: payload, error: rpcError } = await supabase.rpc('get_inbox', { pass: pass.trim() })
+    const { data: payload, error: rpcError } = await supabase.rpc('get_incogra_inbox', { pass: pass.trim() })
     setLoading(false)
     if (rpcError) {
       setError('That password didn’t work.')

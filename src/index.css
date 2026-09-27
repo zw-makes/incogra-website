@@ -1539,8 +1539,12 @@ p { margin: 0; }
 
 .legal-body { max-width: 680px; margin: 0 auto; }
 .legal-body h2 { font-size: 28px; margin: 28px 0 8px; }
+.legal-body h3 { font-family: var(--sans); font-size: 16px; font-weight: 600; letter-spacing: 0; margin: 18px 0 8px; }
 .legal-body p, .legal-body li { color: var(--ink-soft); }
-.legal-body ul { padding-left: 18px; }
+.legal-body p + p { margin-top: 12px; }
+.legal-body ul { padding-left: 18px; margin: 8px 0 16px; }
+.legal-body li { margin: 6px 0; }
+.legal-body a { color: var(--accent); font-weight: 600; text-decoration: none; }
 
 .waitlist-card textarea {
   resize: vertical;

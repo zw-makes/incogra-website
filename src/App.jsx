@@ -7,6 +7,7 @@ import Extension from './pages/Extension.jsx'
 import AppDemo from './pages/AppDemo.jsx'
 import GetStarted from './pages/GetStarted.jsx'
 import Privacy from './pages/Privacy.jsx'
+import Terms from './pages/Terms.jsx'
 import Investors from './pages/Investors.jsx'
 import Inbox from './pages/Inbox.jsx'
 
@@ -47,6 +48,7 @@ export default function App() {
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/investors" element={<Investors />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="/inbox" element={<Inbox />} />
         </Routes>
       </main>

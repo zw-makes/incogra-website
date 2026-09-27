@@ -60,6 +60,7 @@ export default function Nav() {
           <NavLink to="/get-started">Get started</NavLink>
           <NavLink to="/investors">For Investors</NavLink>
           <NavLink to="/privacy">Privacy</NavLink>
+          <NavLink to="/terms">Terms</NavLink>
           <Link to="/get-started" className="btn btn-accent">Join</Link>
         </div>
       )}

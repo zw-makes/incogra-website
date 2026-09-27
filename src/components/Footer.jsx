@@ -79,6 +79,7 @@ export default function Footer() {
             <h3>Company</h3>
             <Link to="/investors">For Investors</Link>
             <Link to="/privacy">Privacy</Link>
+            <Link to="/terms">Terms</Link>
             <a href="mailto:zwmakes@gmail.com">zwmakes@gmail.com</a>
           </div>
         </div>

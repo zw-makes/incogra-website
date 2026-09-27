@@ -75,7 +75,7 @@ export const FAQS = [
   },
   {
     q: 'How much does it cost?',
-    a: 'Free forever for up to 49 clips. Curator is $4.99 a month for unlimited saves and private folders. Studio is $149.99 once, lifetime.'
+    a: 'Free forever for up to 49 clips. Curator is $4.99 a month for up to 1,500 clips and private folders. Studio is $149.99 once, lifetime, also up to 1,500 clips.'
   },
   {
     q: 'Can I share what I saved?',

@@ -21,7 +21,7 @@ const BETS = [
   {
     kicker: 'The model',
     title: 'The library is the product.',
-    body: 'Free forever for up to 49 clips. Curator is $4.99 a month for unlimited saves and private folders. Studio is $149.99 once, lifetime. Grow with the vault, not with ads against it.'
+    body: 'Free forever for up to 49 clips. Curator is $4.99 a month for up to 1,500 clips and private folders. Studio is $149.99 once, lifetime, also up to 1,500 clips. Grow with the vault, not with ads against it.'
   }
 ]
 
@@ -191,12 +191,12 @@ export default function Investors() {
           </article>
           <article className="plan plan-curator">
             <h3>Curator</h3>
-            <p>Unlimited saves, private folders, HD export. The monthly vault.</p>
+            <p>Up to 1,500 clips, private folders, HD export. The monthly vault.</p>
             <p className="investors-price"><strong>$4.99</strong><span>/month</span></p>
           </article>
           <article className="plan plan-studio">
             <h3>Studio</h3>
-            <p>Lifetime access, branded boards, priority sync. Pay once. Keep it.</p>
+            <p>Up to 1,500 clips, lifetime access, branded boards. Pay once. Keep it.</p>
             <p className="investors-price"><strong>$149.99</strong><span>one-time</span></p>
           </article>
         </div>

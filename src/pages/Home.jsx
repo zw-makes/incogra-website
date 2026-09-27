@@ -275,7 +275,7 @@ export default function Home() {
           <article className="plan plan-curator">
             <h3>Curator</h3>
             <ul>
-              <li>Unlimited visual clips &amp; captures</li>
+              <li>Up to 1,500 collected visual clips</li>
               <li>Private folders with passcode lock</li>
               <li>3D DriftWall spatial canvas</li>
               <li>High-res HD media exports</li>
@@ -289,6 +289,7 @@ export default function Home() {
           <article className="plan plan-studio">
             <h3>Studio</h3>
             <ul>
+              <li>Up to 1,500 collected visual clips</li>
               <li>Pay once for lifetime access</li>
               <li>Custom branding on shared boards</li>
               <li>Priority cloud sync &amp; early drops</li>

@@ -6,8 +6,8 @@
     <link rel="apple-touch-icon" href="/FAVICON.png?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#F2F6FC" />
-    <title>Incogra — What you catch should stay yours.</title>
-    <meta name="description" content="Incogra is a Chrome extension and studio for saving images, video, and text from any site, capturing a full page in one click, redacting with six tools, and sharing — or locking — what you keep." />
+    <title>Incogra — Visual Reference &amp; Privacy Redaction Platform</title>
+    <meta name="description" content="Incogra is a visual moodboard and reference archive for designers, developers, and creators to save web inspirations and redact sensitive personal information. Strictly compliant with Google API Terms of Service and strict prohibition of AI NCII (AI-generated Non-Consensual Intimate Imagery)." />
     <meta property="og:title" content="Incogra — What you catch should stay yours." />
     <meta property="og:description" content="Save, capture, redact, and share from any page. Six blur tools. One-click sharing. Private mode." />
     <meta property="og:type" content="website" />
@@ -25,7 +25,33 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <header style="padding: 40px 20px; max-width: 900px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        <h1 style="font-size: 28px; margin-bottom: 16px;">Incogra — Visual Reference &amp; Privacy Redaction Platform</h1>
+        <section style="margin-bottom: 24px;">
+          <h2 style="font-size: 20px; margin-bottom: 8px;">Application Purpose</h2>
+          <p style="font-size: 15px; line-height: 1.6; color: #475569;">
+            Incogra is a visual moodboard and reference library for designers, creators, and researchers to save web inspirations and redact sensitive personal information (such as emails, addresses, and account numbers) before sharing. Google Sign-In is used solely for secure authentication.
+          </p>
+        </section>
+        <section style="margin-bottom: 24px;">
+          <h2 style="font-size: 20px; margin-bottom: 8px;">Strict Prohibition of AI NCII (Non-Consensual Intimate Imagery)</h2>
+          <p style="font-size: 15px; line-height: 1.6; color: #475569;">
+            In strict compliance with Google APIs Terms of Service, Incogra strictly prohibits the creation, generation, upload, storage, processing, or distribution of AI-generated Non-Consensual Intimate Imagery (AI NCII), sexually explicit material, or unauthorized deepfakes. Incogra tools and connected Google APIs may never be used to facilitate intimate or non-consensual content.
+          </p>
+        </section>
+        <section style="margin-bottom: 24px;">
+          <h2 style="font-size: 20px; margin-bottom: 8px;">Google Account &amp; API Usage</h2>
+          <p style="font-size: 15px; line-height: 1.6; color: #475569;">
+            Incogra integrates Google Sign-In solely for identity verification and account authentication via Supabase Auth (requesting basic openid, email, and profile). Incogra does not access, read, or process personal user data from any other Google service, and strictly complies with the Google API Services User Data Policy.
+          </p>
+        </section>
+        <nav style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #cbd5e1; display: flex; gap: 20px;">
+          <a href="/privacy" style="color: #0284c7; text-decoration: underline; font-size: 14px; font-weight: 600;">Privacy Policy</a>
+          <a href="/terms" style="color: #0284c7; text-decoration: underline; font-size: 14px; font-weight: 600;">Terms of Service</a>
+        </nav>
+      </header>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
